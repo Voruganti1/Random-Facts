@@ -20,13 +20,26 @@ function App() {
     };
     fact();
   }, []);
+  const refreshHandler = () => {
+    //useEffect(() => console.log("refreshed"));
+    const fact = async () => {
+      var r = await axios.get("https://catfact.ninja/fact");
+      setRandomFact(r.data.fact);
+      console.log(r);
+    };
+    fact();
+  };
   //setRandomFact(fact);
   //};
   return (
     <div>
-      <span>{"{"}</span>
-      <p className="fact">"fact" : {randomFact}</p>
-      <span>{"}"}</span>
+      <div>
+        <span>{"{"}</span>
+        <p className="fact">"fact" : {randomFact}</p>
+        <p className="fact">"length" : {randomFact.length}</p>
+        <span>{"}"}</span>
+      </div>
+      <button onClick={refreshHandler}>Refresh</button>
     </div>
   );
 }
