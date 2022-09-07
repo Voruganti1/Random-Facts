@@ -1,19 +1,34 @@
 import "./App.css";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 function App() {
   const [randomFact, setRandomFact] = useState("");
   //const displayFact = () => {
-  const fact = axios
-    .get("https://uselessfacts.jsph.pl/random.json")
-    .then((res) => {
-      setRandomFact(res.data.text);
-    })
-    .catch((x) => null);
-  console.log(fact);
+  useEffect(() => {
+    /*
+    const fact = axios
+      .get("https://uselessfacts.jsph.pl/random.json?language=en")
+      .then((res) => {
+        setRandomFact(res.data.text);
+      })
+      .catch((x) => null);
+      */
+    const fact = async () => {
+      var r = await axios.get("https://catfact.ninja/fact");
+      setRandomFact(r.data.fact);
+      console.log(r);
+    };
+    fact();
+  }, []);
   //setRandomFact(fact);
   //};
-  return <p>{randomFact}</p>;
+  return (
+    <div>
+      <span>{"{"}</span>
+      <p className="fact">"fact" : {randomFact}</p>
+      <span>{"}"}</span>
+    </div>
+  );
 }
 
 export default App;
