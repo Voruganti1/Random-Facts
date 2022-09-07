@@ -1,11 +1,12 @@
 import "./App.css";
-import Api from "./Api";
+import axios from "axios";
+
 function App() {
-  return (
-    <div>
-      <p>{displayFact}</p>
-    </div>
-  );
+  const displayFact = () => {
+    const fact = axios.get("https://uselessfacts.jsph.pl/random.json");
+    console.log(fact);
+  };
+  return <p>{displayFact}</p>;
 }
 
 export default App;
