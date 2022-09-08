@@ -2,34 +2,19 @@ import "./App.css";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { TestComponent } from "./TestComponent";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import AppState from "./components/AppState";
 
 const URL = "https://catfact.ninja/fact";
 
 function App() {
-  const [randomFact, setRandomFact] = useState("");
-
-  async function getData() {
-    const response = await axios.get(URL);
-    setRandomFact(response.data.fact);
-  }
-
-  useEffect(() => {
-    if (!randomFact) {
-      getData();
-    }
-  }, []);
-
   return (
-    <div>
-      <TestComponent />
-      <div>
-        <span>{"{"}</span>
-        <p className="fact">"fact" : {randomFact}</p>
-        <p className="fact">"length" : {randomFact.length}</p>
-        <span>{"}"}</span>
-      </div>
-      <button onClick={getData}>Refresh</button>
-    </div>
+    <AppState>
+      <Header />
+      <main>Main area</main>
+      <Footer />
+    </AppState>
   );
 }
 
