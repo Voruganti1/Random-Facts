@@ -2,10 +2,10 @@ import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
 export const AppContext = createContext({});
-const URL = "https://catfact.ninja/fact";
 
 const AppState = (props) => {
   const [randomFact, setRandomFact] = useState("");
+  const URL = "https://catfact.ninja/fact";
 
   async function getData() {
     const response = await axios.get(URL);

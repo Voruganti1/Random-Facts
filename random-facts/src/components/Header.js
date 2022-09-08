@@ -1,7 +1,17 @@
-import React from "react";
+import { useContext } from "react";
+import { AppContext } from "./AppState";
 
-const Header = () => {
-  return <header>This is header</header>;
+export const Header = () => {
+  const { randomFact, appName } = useContext(AppContext);
+
+  return (
+    <header>
+      <h1>{appName}</h1>
+      <h4>{randomFact}</h4>
+    </header>
+  );
 };
 
-export default Header;
+export const HeaderTitle = () => {
+  return <h1>This is The Title</h1>;
+};
