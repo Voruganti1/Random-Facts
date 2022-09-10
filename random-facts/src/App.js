@@ -1,7 +1,7 @@
 import "./App.css";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { TestComponent } from "./TestComponent";
+import { TestComponent } from "./RandomFactContext";
 import { Header } from "./components/Header";
 import Footer from "./components/Footer";
 import AppState from "./components/AppState";
