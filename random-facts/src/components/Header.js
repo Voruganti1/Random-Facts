@@ -1,13 +1,11 @@
-import { useContext } from "react";
 import { AppContext } from "./AppState";
-import TestComponent, { factContext } from "../RandomFactContext";
+import { useRanfomFact } from "../RandomFactContext";
 
 export const Header = () => {
-  const { appName } = useContext(AppContext);
-  const { randomFact } = useContext(factContext);
+  const { randomFact } = useRanfomFact();
+
   return (
     <header>
-      <h1>{appName}</h1>
       <h4>{randomFact}</h4>
     </header>
   );
