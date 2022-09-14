@@ -30,7 +30,6 @@ const RandomFactContext = (props) => {
   );
 };
 
-// lexical scoping
 export const useRanfomFact = () => {
   const context = useContext(factContext);
 
